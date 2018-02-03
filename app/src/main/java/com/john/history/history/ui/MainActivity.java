@@ -2,6 +2,7 @@ package com.john.history.history.ui;
 
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.MutableLiveData;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -9,24 +10,27 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.john.history.history.R;
+import com.john.history.history.bean.Action;
+import com.john.history.history.bean.Name;
 import com.john.history.history.database.Itemyyy;
+import com.john.history.history.databinding.ActivityMainBinding;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+//import butterknife.BindView;
+//import butterknife.ButterKnife;
+//import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     private int i;
 //    private CharSequence ;
-    @BindView(R.id.date)
-    TextView date;
-    @BindView(R.id.text)
-    TextView text;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
+//    @BindView(R.id.date)
+//    TextView date;
+//    @BindView(R.id.text)
+//    TextView text;
+//    @BindView(R.id.fab)
+//    FloatingActionButton fab;
 
     MutableLiveData<String> aaa=new MutableLiveData<String>();
     MutableLiveData<Itemyyy> bbb=new MutableLiveData<Itemyyy>();
@@ -35,23 +39,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
         aaa.setValue("galaxy");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        Name name = new Name();
+        name.firstname.set("John");
+        name.lastname.set("Chang");
+        binding.setName(name);
+        binding.setAction(new Action());
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        new Thread(() -> {
+//            name.firstname = "qiang";
+//            name.lastname = "zhang";
+//        }
+//        ).start();
 
-        aaa.observe(this,x->{
-            date.setText(x);
-        });
+//        ButterKnife.bind(this);
 
-        bbb.observeForever( x->{
-            text.setText(x.text);
-        });
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        aaa.observe(this,x->{
+//            date.setText(x);
+//        });
+//
+//        bbb.observeForever( x->{
+//            text.setText(x.text);
+//        });
 //        setSupportActionBar(toolbar);
 
 
@@ -63,11 +77,9 @@ public class MainActivity extends AppCompatActivity {
 //                i+=1;
 //            }
 //        });
-
-
     }
 
-    @OnClick(R.id.fab)
+//    @OnClick(R.id.fab)
     public void fabOnClick(){
         aaa.postValue("ggg "+i);
         bbb.postValue(new Itemyyy(date2string(mDate)+i));
@@ -77,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
     private String date2string(Date date){
 //        SimpleDateFormat format1 = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss")
         return new SimpleDateFormat("YYYY-MM-dd").format(date);
+    }
+    public class Action1{
+        Name mName;
+        String mFirstName;
+        String mLastName;
+        public void onClick(Name name) {
+            mName=name;
+
+        }
     }
 
 }
