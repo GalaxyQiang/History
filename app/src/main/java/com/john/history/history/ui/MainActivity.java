@@ -24,7 +24,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private int i;
-    private int count=0;
+    private int count=1;
 //    private CharSequence ;
 //    @BindView(R.id.date)
 //    TextView date;
