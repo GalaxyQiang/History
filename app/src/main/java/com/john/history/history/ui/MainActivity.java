@@ -24,6 +24,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private int i;
+    private int count=0;
 //    private CharSequence ;
 //    @BindView(R.id.date)
 //    TextView date;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     MutableLiveData<String> aaa=new MutableLiveData<String>();
     MutableLiveData<Itemyyy> bbb=new MutableLiveData<Itemyyy>();
-
+    MutableLiveData<Itemyyy> ccc;
     Date mDate=new Date(1988-1900,1,12);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
 //    @OnClick(R.id.fab)
     public void fabOnClick(){
         aaa.postValue("ggg "+i);
+        ccc=bbb;
+
         bbb.postValue(new Itemyyy(date2string(mDate)+i));
         i+=1;
     }
@@ -92,11 +95,20 @@ public class MainActivity extends AppCompatActivity {
     }
     public class Action1{
         Name mName;
+
+        private Action1(Name mName) {
+            this.mName = mName;
+        }
+
         String mFirstName;
         String mLastName;
         public void onClick(Name name) {
             mName=name;
 
+        }
+//工厂方法
+        public Action1 createAction1(Name mName) {
+            return new Action1(mName);
         }
     }
 
