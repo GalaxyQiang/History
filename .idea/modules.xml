@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/History.iml" filepath="$PROJECT_DIR$/.idea/History.iml" />
+      <module fileurl="file://$PROJECT_DIR$/History.iml" filepath="$PROJECT_DIR$/History.iml" />
       <module fileurl="file://C:\Users\Administrator\AndroidStudioProjects\History\History.iml" filepath="C:\Users\Administrator\AndroidStudioProjects\History\History.iml" />
+      <module fileurl="file://D:\Android\AndroidStudioProjects\History\.idea\History.iml" filepath="D:\Android\AndroidStudioProjects\History\.idea\History.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

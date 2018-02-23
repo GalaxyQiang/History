@@ -30,9 +30,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
     buildToolsVersion '27.0.2'
-    dexOptions {
-        incremental true
-    }
+//    dexOptions {
+//        incremental true
+//    }
 }
 
 dependencies {
