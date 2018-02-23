@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         name.lastname.set("Chang");
         binding.setName(name);
         binding.setAction(new Action());
+        int[] list=new int[5];
+        for(int a :list){
+
+        }
 
 //        new Thread(() -> {
 //            name.firstname = "qiang";
